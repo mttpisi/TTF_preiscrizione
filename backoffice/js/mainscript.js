@@ -6,6 +6,16 @@ const userData = {
     email:"johndoe@fake.com"
 };
 
+const dbUtenti = fetch("db.json").then(function(response){
+    if(!response.ok){
+        console.log(response.statusText);
+    }
+    return response.json();
+}).then(function(data){
+    console.log(data);
+    return data;
+});
+
 //creo un array di contatti
 const users = [userData,userData,userData,userData,userData,userData,userData];
 
