@@ -1,9 +1,13 @@
+//fetch del db.json(fetch ha per forza bisogno di un server, anche per risorse locali)
 var getDbUtenti = fetch("http://localhost:3000/js/db.json",{headers:{'content-type':'application/json'}}).then(function(response){
+    //se si verifica un errore stampa in console il codice e la stringa relativa all'errore
     if(!response.ok){
-        console.log(response.statusText);
+        throw new Error(responde.status + " : " + response.statusText)
     }
+    //ritorna il body della risposta come json
     return response.json();
 }).then(function(data){
+    //riempi le card con i relativi dati dei contatti ottenuti
     fillContacts(data);
 });
 
@@ -32,10 +36,6 @@ function fillContacts(users){
         }
     }
 }
-
-
-
-
 
 function createContact(userData){
     let card = document.createElement("div");
