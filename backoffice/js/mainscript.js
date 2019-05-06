@@ -1,48 +1,38 @@
-//Dati fasulli
-const userData = {
-    nome:"John",
-    cognome:"Doe",
-    telefono:"02 12345678",
-    email:"johndoe@fake.com"
-};
-
-const dbUtenti = fetch("db.json").then(function(response){
+var getDbUtenti = fetch("http://localhost:3000/js/db.json",{headers:{'content-type':'application/json'}}).then(function(response){
     if(!response.ok){
         console.log(response.statusText);
     }
     return response.json();
 }).then(function(data){
-    console.log(data);
-    return data;
+    fillContacts(data);
 });
 
-//creo un array di contatti
-const users = [userData,userData,userData,userData,userData,userData,userData];
-
-//recupero il div dei contatti
-let divContacts = document.getElementById("contacts");
-for(i=0;i<users.length;i++){
-    //controllo se sto inserendo il 4 elemento in una riga. Se si, creo una nuova riga
-    if(i%3 == 0){
-        let row = document.createElement("div");
-        row.className = "row mb-2";
-
-        let col = document.createElement("div");
-        col.className = "col-md-4";
-
-        col.appendChild(createContact(users[i]));
-
-        row.appendChild(col);
-        divContacts.appendChild(row);
-    }else{
-        let lastRow = divContacts.lastChild;
-        let col = document.createElement("div");
-        col.className = "col-md-4";
-        
-        col.appendChild(createContact(users[i]));
-        lastRow.appendChild(col);
+function fillContacts(users){
+    let divContacts = document.getElementById("contacts");
+    for(i=0;i<users.length;i++){
+        //controllo se sto inserendo il 4 elemento in una riga. Se si, creo una nuova riga
+        if(i%3 == 0){
+            let row = document.createElement("div");
+            row.className = "row mb-2";
+    
+            let col = document.createElement("div");
+            col.className = "col-md-4";
+    
+            col.appendChild(createContact(users[i]));
+    
+            row.appendChild(col);
+            divContacts.appendChild(row);
+        }else{
+            let lastRow = divContacts.lastChild;
+            let col = document.createElement("div");
+            col.className = "col-md-4";
+            
+            col.appendChild(createContact(users[i]));
+            lastRow.appendChild(col);
+        }
     }
 }
+
 
 
 
