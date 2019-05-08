@@ -26,7 +26,7 @@ app.get('/index.html', function(req,res){
     res.sendFile(path.resolve(__dirname + "/../index.html"));
 });
 app.get('/landing.html', function(req,res){
-	res.sendFile(path.resolve(__dirname + "/../index.html"));
+	res.sendFile(path.resolve(__dirname + "/../landing.html"));
 });
 
 //gestione delle richieste POST
