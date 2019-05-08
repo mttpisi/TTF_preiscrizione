@@ -1,17 +1,21 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin:0;
+    padding:0;
 }
 
-body{
-    width: 100vw;
-    max-width: 100%;
+#topbar{
+    border-bottom:3px #1061a0 solid;
 }
-
-.col{
-    padding:0.7em;
+#logo{
+    width: 200px;
+    height: auto;
 }
-
-#sideBarNav{
-    padding: 0.5em;
+#btnSubmit{
+    background: #1061a0;
+    transition: background 300ms ease-in-out;
+    -moz-transition: background 300ms ease-in-out;
+    -webkit-transition: background 300ms ease-in-out;
+}
+#btnSubmit:hover{
+    background: #1e8bdf;
 }
