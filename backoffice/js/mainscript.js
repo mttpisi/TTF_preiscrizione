@@ -1,5 +1,5 @@
 //fetch del db.json(fetch ha per forza bisogno di un server, anche per risorse locali)
-var getDbUtenti = fetch("http://localhost:3000/js/db.json",{headers:{'content-type':'application/json'}})
+var getDbUtenti = fetch("http://localhost:3000/preiscritti",{headers:{'content-type':'application/json'}})
 .then(function(response){
     //se si verifica un errore stampa in console il codice e la stringa relativa all'errore
     if(!response.ok){
@@ -10,7 +10,7 @@ var getDbUtenti = fetch("http://localhost:3000/js/db.json",{headers:{'content-ty
 }).then(function(data){
     //riempi le card con i relativi dati dei contatti ottenuti
     console.log(data);
-    fillContacts(data.preiscritti);
+    fillContacts(data);
 });
 
 function fillContacts(users){
