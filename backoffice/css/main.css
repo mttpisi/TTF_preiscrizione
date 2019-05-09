@@ -15,3 +15,10 @@ body{
 #sideBarNav{
     padding: 0.5em;
 }
+#topbar{
+    border-bottom:3px #1061a0 solid;
+}
+#logo{
+    width: 200px;
+    height: auto;
+}
