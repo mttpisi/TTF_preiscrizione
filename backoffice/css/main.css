@@ -76,7 +76,10 @@ body{
     overflow: auto;
     border: 1px solid #a3a3a3;
 }
-
+#inputNome{
+    border-color: red;
+    
+}
 
 
 @media only screen and (max-width: 768px){

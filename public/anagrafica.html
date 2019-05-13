@@ -21,19 +21,13 @@
             </nav>
             <div class="container pt-3">
                 <div class="row mb-3">
-                    <h1 class="col text-center">Preiscrizione (step 2 di 2)</h1>
+                    <h3 class="col text-center">Preiscrizione (step 2 di 2)</h3>
                 </div>
                 <p id="clear"></p>
                 <div class="row mb-3">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <p class="col justify-content-center"><h4>Puoi completare subito la preiscrizione con i dati richiesti. Altrimenti puoi farlo in un secondo momento seguendo le istruzioni
-                            che ti abbiamo inviato via E-mail.Tutti i campi sono obbligatori</h4></p>
-                        <p class="col justify-content-center"><h5>Tutti i campi sono obbligatori</h5></p>
-                    </div>
-                    <div class="col-md-3"></div>
+                    <h5 class="col text-center">Tutti i campi sono obbligatori</h5>
                 </div>
-                <form id="mainForm" onsubmit="return validaForm()" action = "/preregister" method="POST">
+                <form id="anagraficaForm" onsubmit="return convalidaForm()" action = "/preregister" method="POST">
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-1 form-group col-xs-5">
@@ -57,19 +51,21 @@
                         <div class="col-md-3"></div>
                         <div class="col-md-3 form-group col-xs-5">
                             <label for="inputDataNascita">Data di nascita</label>
-                            <input type="date" class="form-control" id="inputDataNascita" name="dataNascita" required>
+                            <input type="date" class="form-control" id="inputDataNascita" name="dataNascita">
+                            <span id="messaggioDataNascita"></span>
                         </div>
                         <div class="col-md-3 form-group col-xs-5">
                             <label for="inputLuogoNascita">Luogo di nascita</label>
-                            <input type="text" class="form-control" id="inputLuogoNascita" name="luogoNascita" required>
+                            <input type="text" class="form-control" id="inputLuogoNascita" name="luogoNascita">
+                            <span classid="messaggioLuogoNascita"></span>
                         </div>
                         <div class="col-md-3"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-3"></div>
-                        <div class="col-md-3 form-group col-xs-5">
+                        <div class="col-md-6 form-group col-xs-5">
                             <label for="selectNazione">Nazionalità</label>
-                            <select class="form-control" id="selectNazione" name="nazione" required>
+                            <select class="form-control" id="selectNazione" name="nazione">
                                     <option value="selectNazione">   ---   </option>
                                     <option value="Afghanistan">Afghanistan</option>
                                     <option value="Åland Islands">Åland Islands</option>
@@ -314,16 +310,17 @@
                                     <option value="Zambia">Zambia</option>
                                     <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
-                        </div>
-                        <div class="col-md-3 form-group col-xs-5">
-                            <label for="inputCodiceFiscale">Codice fiscale</label>
-                            <input type="text" class="form-control" id="inputCodiceFiscale" name="codiceFiscale" required>
+                                <span id="messaggioNazione"></span>
                         </div>
                         <div class="col-md-3"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-3"></div>
-                        <div class="col-md-6 form-group col-xs-5">
+                        <div class="col-md-3 form-group col-xs-5">
+                            <label for="inputCodiceFiscale">Codice fiscale</label>
+                            <input type="text" class="form-control" id="inputCodiceFiscale" name="codiceFiscale" required>
+                        </div>
+                        <div class="col-md-3 form-group col-xs-5">
                             <label for="inputIndirizzo">Indirizzo di residenza</label>
                             <input type="text" class="form-control" id="inputIndirizzo" name="indirizzo" required>
                         </div>
@@ -457,7 +454,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3"></div>
-                        <div class="col-md-3 form-group col-xs-5">
+                        <div class="col-md-6 form-group col-xs-5">
                             <label for="selectDiploma">Titolo di studio</label>
                             <select class="form-control" id="selectDiploma" name="diploma">
                                     <option value="selectDiploma">   ---   </option>
@@ -490,13 +487,17 @@
                                     <option value="master1">Master di I livello</option>
                                     <option value="master2">Master di II livello</option>
                                     <option value="PhD">Dottorato di ricerca</option>
-                                </select>
+                            </select>
                         </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
                         <div class="col-md-3 form-group col-xs-5">
                             <label for="uploadAttestato">Attestato diploma</label>
                             <input type="file" id="uploadAttestato" name="attestato">
                         </div>
-                        <div class="col-md-3"></div>
+                        <div class="col-md-6"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-3"></div>
@@ -523,10 +524,8 @@
                 </form>
             </div>
         </div>
-
         <p id="clear"></p>
 
-        <script src="js/script.js"></script>
-        <script src="js/checkTelefono.js"></script>
+        <script src="js/controlloAnagrafica.js"></script>
     </body>
 </html>
