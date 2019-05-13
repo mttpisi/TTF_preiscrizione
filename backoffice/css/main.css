@@ -27,7 +27,7 @@ body{
     width: 100%;
 }
 #navbarNav .nav-item{
-    font-size: 5.5vh;
+    font-size: 4.5vh;
     width:100%;
     padding-left: 0.7vw;
 }
@@ -43,7 +43,46 @@ body{
     min-height: auto;
 }
 
-@media only screen and (max-width: 768px) {
+#tableOpenDay{
+    border: 1px solid #a3a3a3;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;  
+}
+#tableHead>div:nth-child(-n+2){
+    border-right: 1px solid #a3a3a3;
+}
+.tableRow > *{
+    vertical-align: middle;
+    border-bottom: 1px solid #a3a3a3;
+}
+.tableRow>div:nth-child(-n+2){
+    border-right: 1px dashed #a3a3a3;
+}
+.btn{
+    margin:0px 5px;
+}
+
+#aggiungiModal>.modal-dialog{
+    max-width: 700px !important;
+}
+
+#presenzeModal>.modal-dialog{
+    max-width: 800px !important;
+}
+
+#containerTablePresenze{
+    max-height: 350px;
+    overflow: auto;
+    border: 1px solid #a3a3a3;
+}
+#inputNome{
+    border-color: red;
+    
+}
+
+
+@media only screen and (max-width: 768px){
     #sidebar {
       position: static;
       border-right: none;
@@ -51,5 +90,9 @@ body{
     }
     #logo{
         width: 200px;
+    }
+    .tableRow>div:nth-child(-n+2){
+        border-bottom-style: dashed;
+        border-right: none;
     }
 }
