@@ -10,6 +10,7 @@ document.getElementById("inputEmail").addEventListener("keypress", function(){
 });
 
 function validaForm(){
+    console.log("start");
     let iNome = document.getElementById("inputNome").checkValidity()
     let iCognome = document.getElementById("inputCognome").checkValidity();
     let iEmail = document.getElementById("inputEmail").checkValidity();
@@ -35,6 +36,8 @@ function validaForm(){
             document.getElementById("inputEmail").setCustomValidity("Aggiungi un '.' seguito dal dominio dell'indirizzo email");
         }
     }
+
+fetch("http://localhost.3000/preregister)
 
     if(iNome && iCognome && iEmail && iTelefono && iCheck){
         console.log(iEmail)
