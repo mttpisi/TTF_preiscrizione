@@ -10,6 +10,7 @@ document.getElementById("inputEmail").addEventListener("keypress", function(){
 });
 
 function validaForm(){
+    console.log("start");
     let iNome = document.getElementById("inputNome").checkValidity()
     let iCognome = document.getElementById("inputCognome").checkValidity();
     let iEmail = document.getElementById("inputEmail").checkValidity();
