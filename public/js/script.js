@@ -37,6 +37,8 @@ function validaForm(){
         }
     }
 
+fetch("http://localhost.3000/preregister)
+
     if(iNome && iCognome && iEmail && iTelefono && iCheck){
         console.log(iEmail)
         return true;
