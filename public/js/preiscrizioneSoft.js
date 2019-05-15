@@ -51,19 +51,19 @@ function validaForm() {
             "nome":document.getElementById("inputNome").value,
             "cognome":document.getElementById("inputCognome").value,
             "email":document.getElementById("inputEmail").value,
-            "prefissoTel":document.getElementById("prefissoTel"),
+            "prefissoTel":document.getElementById("prefissoTel").value,
             "telefono":document.getElementById("inputTelefono").value,
-            "informativa":document.getElementById("inputCheck").checked
+            "informativa":document.getElementById("inputCheck").checked,
+            "token":Math.random()
         };
         
         /* requestToken(form,function(json){token = json.token;console.log(token)}); */
-        fetch("http://localhost:3000/preregister",{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(form)})
+        fetch("http://localhost:3000/utentiPreiscritti/",{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(form)})
         .then((response)=>{
             return response.json();
-        })
-        .then((json)=>{
-            console.log(json)
-            document.getElementById("mainForm").innerHTML+=`<input type="hidden" name="inputToken" value="${json.token}">`;
+        }).then((data)=>{
+            console.log(data);
+            document.getElementById("mainForm").innerHTML+=`<input type="hidden" name="inputToken" value="${data.token}">`;
             document.getElementById("mainForm").submit();
         });
     }
