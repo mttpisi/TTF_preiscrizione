@@ -7,8 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/anagrafica.css">
+        <link rel="stylesheet" href="css/main.css"> 
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -28,7 +27,7 @@
                 <div class="row mb-3">
                     <h5 class="col text-center">Tutti i campi sono obbligatori</h5>
                 </div>
-                <form id="anagraficaForm" action = "/preregister" method="POST">
+                <form id="anagraficaForm" action = "landing2.html" method="GET">
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-1 form-group col-xs-5">
@@ -43,7 +42,7 @@
                             <label for="maschio">M</label>
                         </div>
                         <div class="col-md-1 form-group col-xs-5">
-                            <input type="radio" name="sesso" value="femmina">
+                            <input type="radio" name="sesso" value="femmina" required>
                             <label for="femmina">F</label>
                         </div>
                         <div class="col-md-6"></div>
@@ -66,7 +65,7 @@
                         <div class="col-md-6 form-group col-xs-5">
                             <label for="selectNazione">Nazionalità</label>
                             <select class="form-control" id="selectNazione" name="nazione" required>
-                                    <option value="selectNazione">   ---   </option>
+                                    <option value=false>   ---   </option>
                                     <option value="Afghanistan">Afghanistan</option>
                                     <option value="Åland Islands">Åland Islands</option>
                                     <option value="Albania">Albania</option>
@@ -338,7 +337,7 @@
                         <div class="col-md-2 form-group col-xs-5">
                             <label for="selectProvincia">Provincia</label>
                             <select class="form-control" id="selectProvincia" name="provincia" required>
-                                    <option value="selectProvincia">   ---   </option>
+                                    <option value=false>   ---   </option>
                                     <option value="ag">AG</option>
                                     <option value="al">AL</option>
                                     <option value="an">AN</option>
@@ -454,9 +453,9 @@
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6 form-group col-xs-5">
-                            <label for="selectDiploma">Titolo di studio</label>
-                            <select class="form-control" id="selectDiploma" name="diploma" required>
-                                    <option value="selectDiploma">   ---   </option>
+                            <label for="selectTitoloDiStudio">Titolo di studio</label>
+                            <select class="form-control" id="selectTitoloDiStudio" name="titoloDiStudio" required>
+                                    <option value=false>   ---   </option>
                                     <option value="artistico">Liceo artistico</option>
                                     <option value="classico">Liceo classico</option>
                                     <option value="linguistico">Liceo linguistico</option>
@@ -517,14 +516,14 @@
                     <p id="clear"></p>
                     <div class="row">
                         <div class="col-md-5"></div>
-                        <button type="submit" class="btn btn-primary col-md-2" id="btnSubmit" name="conferma">Conferma</button>
+                        <button type="button" class="btn btn-primary col-md-2" id="btnSubmit" onclick="validaAnagrafica()"name="conferma">Conferma</button>
                         <div class="col-md-5"></div>
                     </div>
                 </form>
             </div>
         </div>
         <p id="clear"></p>
-
         <script src="js/controlloAnagrafica.js"></script>
+        <script src="js/inputErrorSignal.js"></script>
     </body>
 </html>
