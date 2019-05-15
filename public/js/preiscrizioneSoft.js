@@ -9,11 +9,12 @@ document.getElementById("inputEmail").addEventListener("keypress", function () {
 });
 
 function validaForm() {
-    let iNome = document.getElementById("inputNome").checkValidity()
-    let iCognome = document.getElementById("inputCognome").checkValidity();
-    let iEmail = document.getElementById("inputEmail").checkValidity();
-    let iTelefono = document.getElementById("inputTelefono").checkValidity();
-    let iCheck = document.getElementById("inputCheck").checkValidity();
+    let iCheck = document.getElementById("inputCheck").reportValidity();
+    let iTelefono = document.getElementById("inputTelefono").reportValidity();
+    let iEmail = document.getElementById("inputEmail").reportValidity();
+    let iCognome = document.getElementById("inputCognome").reportValidity();
+    let iNome = document.getElementById("inputNome").reportValidity();
+    
 
     // controllo il nome
     inputErrorSignal(document.getElementById("inputNome"),iNome);
@@ -74,12 +75,3 @@ function validaForm() {
     await callback(tokenOBJ);
 }; */
 
-function inputErrorSignal(input,error){
-    if(!error){
-        input.style.borderColor = "#cc0000";
-        input.style.boxShadow = "0 0 0 0.2rem rgb(255, 26, 26,.25)";
-    }else{
-        input.style.boxShadow = "none";
-        input.style.borderColor = "#ced4da";
-    }
-}

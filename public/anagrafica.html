@@ -495,7 +495,7 @@
                         <div class="col-md-3"></div>
                         <div class="col-md-3 form-group col-xs-5">
                             <label for="uploadAttestato">Attestato diploma</label>
-                            <input type="file" id="uploadAttestato" name="attestato">
+                            <input type="file" accept=".pdf,.jpeg,.jpg,.png,.bmp,.tif,.tiff" id="uploadAttestato" name="attestato">
                         </div>
                         <div class="col-md-6"></div>
                     </div>
@@ -503,7 +503,7 @@
                         <div class="col-md-3"></div>
                         <div class="col-md-3 form-group col-xs-5">
                             <label for="uploadCartaId">Carta d'identità</label>
-                            <input type="file" id="uploadCartaId" name="cartaId">
+                            <input type="file" accept=".pdf,.jpeg,.jpg,.png,.bmp,.tif,.tiff" id="uploadCartaId" name="cartaId">
                         </div>
                         <div class="col-md-6"></div>
                     </div>
@@ -511,14 +511,14 @@
                         <div class="col-md-3"></div>
                         <div class="col-md-3 form-group col-xs-5">
                             <label for="uploadCv">CV e lettera di presentazione</label>
-                            <input type="file" id="uploadCv" name="cv">
+                            <input type="file" accept=".pdf,.jpeg,.jpg,.png,.bmp,.tif,.tiff" id="uploadCv" name="cv">
                         </div>
                         <div class="col-md-6"></div>
                     </div>
                     <p id="clear"></p>
                     <div class="row">
                         <div class="col-md-5"></div>
-                        <button type="submit" class="btn btn-primary col-md-2" id="btnSubmit" name="conferma">Conferma</button>
+                        <button type="button" class="btn btn-primary col-md-2" id="btnSubmit" onclick="validaForm()" name="conferma">Conferma</button>
                         <div class="col-md-5"></div>
                     </div>
                 </form>
