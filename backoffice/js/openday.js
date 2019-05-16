@@ -94,7 +94,7 @@ function addOpenDay(flag,indexOpenDay){
             .then((response)=>{
                 return response.json();
             }).then((data)=>{
-                document.getElementById("annulla").click();
+                document.getElementById("annullaDati").click();
                 document.getElementById("tableOpenDay").innerHTML = "";
                 getOpenDays();
             });  

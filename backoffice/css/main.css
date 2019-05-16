@@ -59,8 +59,9 @@ body{
 .tableRow>div:nth-child(-n+2){
     border-right: 1px dashed #a3a3a3;
 }
-.btn{
+.row .py-2 .btn{
     margin:0px 5px;
+    height: 60px;
 }
 
 #aggiungiModal>.modal-dialog{
