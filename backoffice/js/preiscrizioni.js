@@ -1,5 +1,5 @@
 //fetch del db.json(fetch ha per forza bisogno di un server, anche per risorse locali)
-var getDbUtenti = fetch("http://localhost:3000/preiscritti",{headers:{'content-type':'application/json'}})
+var getDbUtenti = fetch("http://localhost:3000/utentiPreiscritti",{headers:{'content-type':'application/json'}})
 .then(function(response){
     //se si verifica un errore stampa in console il codice e la stringa relativa all'errore
     if(!response.ok){
