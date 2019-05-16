@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" id="annulla" onclick="resetModal()" data-dismiss="modal">Annulla</button>
+                                <button type="button" class="btn btn-secondary" id="annullaDati" onclick="resetModalDati()" data-dismiss="modal">Annulla</button>
                                 <button type="submit" class="btn btn-success" id="confermaAdd" onclick="addOpenDay(true)">Conferma</button>
                                 <button type="submit" class="btn btn-success" id="confermaMod" onclick="addOpenDay(false)" data-index="none">Conferma</button>
                             </div>
@@ -123,8 +123,8 @@
                                     <h4 class="modal-title">Inserimento Presenze Open Day</h4>
                                     </button>
                                 </div>
-                                <form>
-                                <div class="modal-body text-left">
+                                <form id="formPresenze" onsubmit="return false">
+                                <div id="formPresenze" class="modal-body text-left">
                                     <div class="row">
                                         <div class="col-4 py-2"><h6>Preiscritto da:</h6></div>
                                         <div class="form-group col">
@@ -148,135 +148,16 @@
                                                         <th class="col-2">Presente</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-3">Mario</td>
-                                                        <td class="col-3">Rossi</td>
-                                                        <td class="col-4">mario.rossi@gmail.com</td>
-                                                        <td class="col-2">
-                                                            <div class="form-group">
-                                                                <div class="form-check justify-content-center">
-                                                                    <input class="form-check-input mx-3" type="checkbox" id="gridCheck">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                <tbody id="presenzeBody">
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-                                    <button type="submit" class="btn btn-success">Conferma</button>
+                                    <button type="button" class="btn btn-secondary" id="annullaPresenze" onclick="resetModalPresenze()"data-dismiss="modal">Annulla</button>
+                                    <button type="submit" class="btn btn-success" onclick="confirmPresenze()">Conferma</button>
                                 </div>
                                 </form>
                             </div>

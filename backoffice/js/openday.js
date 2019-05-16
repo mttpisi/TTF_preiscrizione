@@ -21,10 +21,11 @@ function btnToggle(flag){
 }
 
 
-function resetModal(){
+///////OPENDAY
+
+function resetModalDati(){
     document.getElementById("formDatiOpenDay").reset();
 }
-
 
 let openDays;
 getOpenDays();
@@ -53,15 +54,13 @@ function createOpenDayRow(datiOpenDay){
         <div class="row py-2">
         <button class="btn my-1 btn-light col btnModifica" onclick="modOpenDay(${datiOpenDay.id})" data-toggle="modal" data-target="#datiOpenDayModal">Modifica</button>
         <button class="btn my-1 btn-light col btnEsportaLista">Esporta lista partecipanti</button>
-        <button class="btn my-1 btn-light col btnInserisciPresenze" data-toggle="modal" data-target="#presenzeModal">Inserisci presenze</button>
+        <button class="btn my-1 btn-light col btnInserisciPresenze" onclick="getPresenze(${datiOpenDay.id})" data-toggle="modal" data-target="#presenzeModal">Inserisci presenze</button>
         <button class="btn my-1 btn-danger col btnEliminaOpenDay" onclick="delOpenDay(${datiOpenDay.id},this)">Elimina</button>
         </div>
     </div>
     </div>`;
     return openDayTableRow;
 }
-
-
 
 function addOpenDay(flag,indexOpenDay){
     let titolo = document.getElementById("inputNomeOpenDay");
@@ -110,7 +109,7 @@ function addOpenDay(flag,indexOpenDay){
             .then((response)=>{
                 return response.json();
             }).then((data)=>{
-                document.getElementById("annulla").click();
+                document.getElementById("annullaDati").click();
                 document.getElementById("tableOpenDay").innerHTML = "";
                 getOpenDays();
             });
@@ -145,3 +144,69 @@ function delOpenDay(idOpenDay,button){
     });
 }
 
+///////////PRESENZE
+
+function resetModalPresenze(){
+    document.getElementById("presenzeBody").innerHTML="";
+    document.getElementById("presenzeBody").dataset.rifIdOpenDay="none";
+}
+
+let partecipanti;
+function getPresenze(idOpenDay){
+    resetModalPresenze();
+    fetch("http://localhost:3000/openDay/"+idOpenDay,{method:"GET"})
+    .then((response)=>{
+        return response.json();
+    }).then((data)=>{
+        partecipanti = data.partecipanti;
+        generatePresenzeRows(idOpenDay);
+    });
+}
+
+function generatePresenzeRows(rifIdOpenDay){
+    for(let i=0;i<partecipanti.length;i++){
+        document.getElementById("presenzeBody").dataset.rifIdOpenDay=rifIdOpenDay;
+        document.getElementById("presenzeBody").innerHTML += createPresenzeRow(partecipanti[i]);
+        if(partecipanti[i].presente){
+            document.getElementById("checkOf"+partecipanti[i].id).disabled = true;
+            document.getElementById("checkOf"+partecipanti[i].id).checked = true; 
+        }
+    }
+}
+
+function createPresenzeRow(partecipante){
+    const presenzeRow = `<tr class="row">
+    <td class="col-3">${partecipante.nome}</td>
+    <td class="col-3">${partecipante.cognome}</td>
+    <td class="col-4">${partecipante.email}</td>
+    <td class="col-2">
+        <div class="form-group">
+            <div class="form-check justify-content-center">
+                <input class="form-check-input mx-3" id="checkOf${partecipante.id}" type="checkbox" >
+            </div>
+        </div>
+    </td>
+    </tr>`;
+    return presenzeRow;
+}
+
+function confirmPresenze(){
+    let checkboxes = document.getElementById("presenzeBody").getElementsByTagName("input");
+    for(let i=0;i<partecipanti.length;i++){
+        console.log(checkboxes[i])
+        if(checkboxes[i].checked){
+            partecipanti[i].presente = true;
+        }
+    }
+    let presenze = {
+        "partecipanti":partecipanti
+    }
+    console.log(presenze)
+    let id = document.getElementById("presenzeBody").dataset.rifIdOpenDay;
+    fetch("http://localhost:3000/openDay/"+id,{method:"PATCH",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(presenze)})
+    .then((response)=>{
+        return response.json();
+    }).then((data)=>{
+        document.getElementById("annullaPresenze").click();
+    });
+}
